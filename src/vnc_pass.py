@@ -9,7 +9,7 @@ def encode_password(password):
     ekey = d3des.deskey(strkey, False)
     ctext = d3des.desfunc(passpadd, ekey)
     return ctext
-    
+
 if __name__ == '__main__':
     vnc_pass = b'goodpass'
     vnc_pass_enc = b'ez\xfb\xedpA\x9f\xad'
