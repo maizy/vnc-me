@@ -13,7 +13,12 @@ def define_global_options():
     define('port', type=int, default=8080, help='listen port')
     define('host', type=str, default='0.0.0.0', help='listen host')
 
+    define('vnc_bin', type=str, default='/usr/bin/xvncviewer', help='xvncviewer binary path')
+    define('x_display', type=str, help='X display to use, by default env var "DISPLAY" used')
+
     define('tmp_dir', type=str, default=path.join(project_dir, 'tmp'))
+    define('static_dir', type=str, default=path.join(project_dir, 'src', 'static'))
+    define('template_dir', type=str, default=path.join(project_dir, 'src', 'templates'))
 
     define('debug', type=bool, default=False)
 
