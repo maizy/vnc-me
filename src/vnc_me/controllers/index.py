@@ -8,8 +8,6 @@ from tornado.web import asynchronous
 
 from vnc_me.controllers import HttpHandler
 
-processes = []
-
 
 class Handler(HttpHandler):
 
