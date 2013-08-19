@@ -49,6 +49,15 @@
           <input id="port" name="port" placeholder="5901" value="5901" required type="text" class="form-control input-lg">
         </div>
 
+        <div class="form-group">
+          <label for="password">Пароль</label>
+          <input id="password" name="password" type="password" class="form-control input-lg">
+          <p class="help-block">
+            Пароль будет храниться в открытом виде на время соединения!<br/>
+            Используйте временные пароли, если это важно.
+          </p>
+        </div>
+
         <button type="submit" class="btn btn-lg btn-primary">Показать</button>
       </fieldset>
       </form>
@@ -81,6 +90,13 @@
       </div>
     </div>
   {% end %}
+  <div class="row" style="margin-top: 50px;">
+    <div class="col-md-2 col-md-offset-10">
+      <p class="text-right" style="font-style: italic; color: #888;">
+        <small>vnc-me, v.{{ info['version'] }}</small>
+      </p>
+    </div>
+  </div>
 </div>
 
 <script src="/static/jquery.min.js"></script>

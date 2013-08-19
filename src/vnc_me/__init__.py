@@ -2,5 +2,5 @@
 # Copyright (c) Nikita Kovaliov, maizy.ru, 2013
 # See LICENSE.txt for details.
 
-__version__ = '0.1'
+__version__ = '0.0.1-better-than-nothing'
 VERSION = __version__
