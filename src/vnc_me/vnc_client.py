@@ -7,6 +7,7 @@ from subprocess import DEVNULL
 from os import path, unlink
 import time
 import random
+import datetime
 
 import vnc_pass
 from tornado.options import options
@@ -50,6 +51,7 @@ class VncClient(object):
         if self.running:
             IOLoop.instance().add_callback(callback, False)
         self.running = True
+        self.start_time = datetime.datetime.now()
         self.log.info('Vnc client "{name}" started for {port}::{host}, password: {password}'
                       .format(name=self.name, port=port, host=host,
                               password='*' * len(password) if password is not None else '<no pass>'))
@@ -62,6 +64,7 @@ class VncClient(object):
         if not self.running:
             IOLoop.instance().add_callback(callback, False)
         self.running = False
+        self.start_time = None
         self.log.info('Vnc client "{name}" stopped'.format(name=self.name))
         self._stop_proc(callback)
 
