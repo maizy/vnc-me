@@ -3,7 +3,11 @@
 # See LICENSE.txt for details.
 
 import logging
-from subprocess import DEVNULL
+try:
+    from subprocess import DEVNULL
+except ImportError:
+    from os import devnull as _devnull
+    DEVNULL = open(_devnull, 'wb')
 from os import path, unlink
 import time
 import random
