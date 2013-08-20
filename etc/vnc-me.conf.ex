@@ -2,4 +2,4 @@
 
 # see all avalable options in vnc_me/options.py
 
-debug = True
+debug = False
