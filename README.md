@@ -16,7 +16,7 @@
 ## Установка
 
 * `sudo apt-get install python3.2 xtightvncviewer python-virtualenv`
-* `git clone git@github.com:maizy/vnc-me.git`
+* `git clone https://github.com/maizy/vnc-me.git`
 * `virtualenv --python /usr/bin/python3.2 vnc-me/venv`
 * `. vnc-me/vevn/bin/activate`
 * `pip install -r vnc-me/requirements.txt`
