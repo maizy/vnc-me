@@ -9,13 +9,13 @@
 * python 3.2+
 * tornado 3.1+
 * pytils
-* xvncviewer
+* xtightvncviewer
 * virtualenv
 * протестировано только на Ubuntu 12.04 LTS
 
 ## Установка
 
-* `sudo apt-get install python3.2 xvncviewer python-virtualenv`
+* `sudo apt-get install python3.2 xtightvncviewer python-virtualenv`
 * `git clone git@github.com:maizy/vnc-me.git`
 * `virtualenv --python /usr/bin/python3.2 vnc-me/venv`
 * `. vnc-me/vevn/bin/activate`
