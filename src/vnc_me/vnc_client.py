@@ -56,7 +56,7 @@ class VncClient(object):
             IOLoop.instance().add_callback(callback, False)
         self.running = True
         self.start_time = datetime.datetime.now()
-        self.log.info('Vnc client "{name}" started for {port}::{host}, password: {password}'
+        self.log.info('Vnc client "{name}" started for {host}::{port}, password: {password}'
                       .format(name=self.name, port=port, host=host,
                               password='*' * len(password) if password is not None else '<no pass>'))
         self.last_host = host
