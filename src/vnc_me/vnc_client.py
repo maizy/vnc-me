@@ -8,7 +8,7 @@ try:
 except ImportError:
     from os import devnull as _devnull
     DEVNULL = open(_devnull, 'wb')
-from os import path, unlink
+from os import path, unlink, environ
 import time
 import random
 import datetime
@@ -88,7 +88,9 @@ class VncClient(object):
             args.extend(['-passwd', pass_file])
         args.append('{}::{}'.format(host, port))
         self.log.debug('Vnc client opts: {!r}'.format(args))
-        self.proc = Subprocess(args=args, stdout=DEVNULL, stderr=DEVNULL)
+        env = environ.copy()
+        env['DISPLAY'] = options.x_display
+        self.proc = Subprocess(args=args, stdout=DEVNULL, stderr=DEVNULL, env=env)
         IOLoop.instance().add_callback(callback, True)
 
     def _stop_proc(self, callback):
@@ -100,7 +102,7 @@ class VncClient(object):
         if self.last_passfile:
             try:
                 unlink(self.last_passfile)
-            except IOError:
+            except (IOError, OSError):
                 pass
         try:
             self.proc.proc.terminate()

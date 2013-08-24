@@ -2,7 +2,7 @@
 # Copyright (c) Nikita Kovaliov, maizy.ru, 2013
 # See LICENSE.txt for details.
 
-from os import path, environ
+from os import path, environ, chmod
 import sys
 
 import tornado.web
@@ -53,6 +53,11 @@ def run(args):
         options.parse_config_file(config_file, final=False)
     _set_x_display(options)
     options.run_parse_callbacks()
+    try:
+        chmod(options.tmp_dir, 0o755)
+    except (NotImplementedError, OSError, IOError) as e:
+        gen_log.warn('Unable to chmod tmp dir: {}'.format(e))
+
     if path.isfile(config_file):
         gen_log.info('Config loaded from {}'.format(config_file))
     build_app()
